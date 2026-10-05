@@ -1,0 +1,195 @@
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+
+.app {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   Background — floating tea cups
+   ========================================================================== */
+
+.tea-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(160deg, #995704 0%, #393734 100%);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.tea-cup {
+  position: absolute;
+  font-size: 2.5rem; /* controls icon size via 1em on the svg below */
+  opacity: 0.9;
+  filter: drop-shadow(0 6px 10px rgba(62, 39, 35, 0.2));
+  will-change: transform;
+  z-index: 1;
+}
+
+.tea-cup-svg {
+  width: 1em;
+  height: 1em;
+  display: block;
+}
+
+/* Tea-specific coloring so it reads as tea, not coffee:
+   white cup body (contrasts against the cream page background),
+   amber tea liquid, and a visible teabag tag + string */
+.tea-cup-body {
+  fill: var(--color-white);
+  stroke: var(--color-tea-brown);
+  stroke-width: 3;
+}
+
+.tea-cup-handle {
+  fill: none;
+  stroke: var(--color-tea-brown);
+  stroke-width: 3;
+}
+
+.tea-cup-saucer {
+  fill: var(--color-tea-brown);
+  opacity: 0.3;
+}
+
+.tea-cup-liquid {
+  fill: var(--color-accent);
+}
+
+.tea-cup-string {
+  fill: none;
+  stroke: var(--color-tea-brown);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+.tea-cup-tag {
+  fill: var(--color-accent);
+  stroke: var(--color-tea-brown);
+  stroke-width: 1;
+}
+
+.tea-cup:nth-child(1)  { top: 6%;  left: 8%;  font-size: 2.2rem; --cup-duration: 5.5s; --cup-delay: 0s;   --cup-rotate: -6deg; }
+.tea-cup:nth-child(2)  { top: 14%; left: 78%; font-size: 3rem;   --cup-duration: 7s;   --cup-delay: 0.6s; --cup-rotate: 8deg; }
+.tea-cup:nth-child(3)  { top: 32%; left: 4%;  font-size: 1.8rem; --cup-duration: 6.2s; --cup-delay: 1.1s; --cup-rotate: 4deg; }
+.tea-cup:nth-child(4)  { top: 40%; left: 88%; font-size: 2.6rem; --cup-duration: 5.8s; --cup-delay: 0.3s; --cup-rotate: -5deg; }
+.tea-cup:nth-child(5)  { top: 62%; left: 12%; font-size: 3.2rem; --cup-duration: 6.8s; --cup-delay: 0.9s; --cup-rotate: 7deg; }
+.tea-cup:nth-child(6)  { top: 70%; left: 82%; font-size: 2rem;   --cup-duration: 5.2s; --cup-delay: 1.4s; --cup-rotate: -8deg; }
+.tea-cup:nth-child(7)  { top: 85%; left: 30%; font-size: 2.4rem; --cup-duration: 6.5s; --cup-delay: 0.2s; --cup-rotate: 5deg; }
+.tea-cup:nth-child(8)  { top: 88%; left: 62%; font-size: 1.9rem; --cup-duration: 7.4s; --cup-delay: 1.7s; --cup-rotate: -4deg; }
+.tea-cup:nth-child(9)  { top: 4%;  left: 45%; font-size: 1.6rem; --cup-duration: 6s;   --cup-delay: 1.2s; --cup-rotate: 6deg; }
+.tea-cup:nth-child(10) { top: 50%; left: 48%; font-size: 1.7rem; --cup-duration: 5.6s; --cup-delay: 0.5s; --cup-rotate: -3deg; }
+
+.tea-background::after {
+  /* soft glow behind the card; the dark edges stay visible.
+     Sits BEHIND the cups (z-index 0 vs cups at 1). */
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(circle at 50% 45%, rgba(255, 244, 230, 0.35) 0%, rgba(255, 244, 230, 0) 65%);
+}
+
+/* ==========================================================================
+   Steps
+   ========================================================================== */
+
+.step {
+  display: none;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  align-items: center;
+  justify-content: center;
+  padding: var(--safe-padding);
+}
+
+.step.active {
+  display: flex;
+}
+
+/* ==========================================================================
+   Card / Content Container
+   ========================================================================== */
+
+.content {
+  width: 100%;
+  max-width: var(--content-max-width);
+  background: var(--color-cream);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: clamp(28px, 6vw, 48px) clamp(20px, 6vw, 40px);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(20px, 4vw, 32px);
+  border: 1px solid rgba(139, 94, 60, 0.12);
+}
+
+.question {
+  font-size: var(--font-size-question);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-dark-brown);
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   Answers / Buttons
+   ========================================================================== */
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.answer-btn {
+  font-size: var(--font-size-button);
+  font-weight: var(--font-weight-bold);
+  padding: 16px 40px;
+  border-radius: var(--radius-pill);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+  min-width: 260px;
+}
+
+.yes-btn {
+  background: var(--color-accent);
+  color: var(--color-white);
+  box-shadow: var(--shadow-button);
+}
+
+.yes-btn:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-2px);
+}
+
+.no-btn {
+  background: var(--color-secondary-bg);
+  color: var(--color-dark-brown);
+  position: fixed;
+  z-index: 10;
+  top: auto;
+}
+
+.no-btn:hover {
+  background: var(--color-secondary-bg-hover);
+}
+
+/* Static layout position for the escape button before its first move
+   (it lives in normal flow via .answers until JS switches it to fixed) */
+.answers .no-btn {
+  position: static;
+}

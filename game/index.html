@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>هل جاهزة للرخامة؟ 🍵</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;800&family=Tajawal:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/extras.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- SVG sprite: kept OUTSIDE .tea-background so the cups are children 1..10 -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="tea-cup-icon" viewBox="0 0 64 60">
+        <ellipse class="tea-cup-saucer" cx="32" cy="52" rx="22" ry="4"/>
+        <path class="tea-cup-body" d="M14 24 H46 L43 46 A6 6 0 0 1 37 51 H23 A6 6 0 0 1 17 46 Z"/>
+        <path class="tea-cup-handle" d="M46 28 C57 28 57 43 46 43"/>
+        <ellipse class="tea-cup-liquid" cx="30" cy="25" rx="16" ry="4"/>
+        <path class="tea-cup-string" d="M30 25 C31 18 27 14 29 8"/>
+        <rect class="tea-cup-tag" x="25" y="2" width="9" height="7" rx="1.5" transform="rotate(-18 29 6)"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <div class="progress" aria-hidden="true"><div class="progress-bar" id="progress-bar"></div></div>
+
+  <main class="app">
+    <div class="tea-background" aria-hidden="true">
+      <span class="tea-cup"><svg class="tea-cup-svg" viewBox="0 0 64 60"><use href="#tea-cup-icon"></use></svg></span>
+      <span class="tea-cup"><svg class="tea-cup-svg" viewBox="0 0 64 60"><use href="#tea-cup-icon"></use></svg></span>
+      <span class="tea-cup"><svg class="tea-cup-svg" viewBox="0 0 64 60"><use href="#tea-cup-icon"></use></svg></span>
+      <span class="tea-cup"><svg class="tea-cup-svg" viewBox="0 0 64 60"><use href="#tea-cup-icon"></use></svg></span>
+      <span class="tea-cup"><svg class="tea-cup-svg" viewBox="0 0 64 60"><use href="#tea-cup-icon"></use></svg></span>
+      <span class="tea-cup"><svg class="tea-cup-svg" viewBox="0 0 64 60"><use href="#tea-cup-icon"></use></svg></span>
+      <span class="tea-cup"><svg class="tea-cup-svg" viewBox="0 0 64 60"><use href="#tea-cup-icon"></use></svg></span>
+      <span class="tea-cup"><svg class="tea-cup-svg" viewBox="0 0 64 60"><use href="#tea-cup-icon"></use></svg></span>
+      <span class="tea-cup"><svg class="tea-cup-svg" viewBox="0 0 64 60"><use href="#tea-cup-icon"></use></svg></span>
+      <span class="tea-cup"><svg class="tea-cup-svg" viewBox="0 0 64 60"><use href="#tea-cup-icon"></use></svg></span>
+    </div>
+
+    <!-- All steps are generated from assets/js/questions.js -->
+    <div id="steps"></div>
+  </main>
+
+  <noscript>محتاج JavaScript عشان اللعبة تشتغل 🍵</noscript>
+
+  <script src="assets/js/questions.js"></script>
+  <script src="assets/js/steps.js"></script>
+  <script src="assets/js/escape-button.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

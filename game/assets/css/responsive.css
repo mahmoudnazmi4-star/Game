@@ -1,0 +1,52 @@
+/* ==========================================================================
+   Responsive — Mobile / Tablet / Desktop
+   ========================================================================== */
+
+/* Mobile (default styles above are mobile-first) */
+@media (max-width: 480px) {
+  .content {
+    gap: 20px;
+    border-radius: 22px;
+  }
+
+  .answer-btn {
+    min-width: 180px;
+    padding: 14px 28px;
+    width: 100%;
+  }
+
+  .tea-cup {
+    font-size: 1.6rem !important;
+  }
+}
+
+/* Tablet */
+@media (min-width: 481px) and (max-width: 900px) {
+  .content {
+    max-width: 480px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 901px) {
+  .content {
+    max-width: 860px;
+  }
+
+  .answers {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+/* Short viewports (landscape phones) */
+@media (max-height: 480px) {
+  .content {
+    gap: 14px;
+    padding: 20px 24px;
+  }
+
+  .question {
+    font-size: 1.4rem;
+  }
+}

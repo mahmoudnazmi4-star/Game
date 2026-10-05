@@ -1,0 +1,42 @@
+/* ==========================================================================
+   Variables — Design Tokens
+   ========================================================================== */
+
+:root {
+  /* Colors */
+  --color-bg: #FFF4E6;
+  --color-cream: #FFF8F0;
+  --color-tea-brown: #8B5E3C;
+  --color-dark-brown: #3E2723;
+  --color-warm-beige: #E8D3B8;
+  --color-accent: #D9A066;
+  --color-accent-hover: #C68A4E;
+  --color-secondary-bg: #F2E4D0;
+  --color-secondary-bg-hover: #EAD6B6;
+  --color-white: #FFFFFF;
+  --color-shadow: rgba(62, 39, 35, 0.18);
+
+  /* Typography */
+  --font-main: 'Cairo', 'Tajawal', sans-serif;
+  --font-size-question: clamp(1.5rem, 4vw + 0.5rem, 2.5rem);
+  --font-size-button: clamp(1rem, 1.5vw + 0.6rem, 1.25rem);
+  --font-weight-bold: 700;
+  --font-weight-regular: 500;
+
+  /* Radius */
+  --radius-lg: 28px;
+  --radius-pill: 50px;
+
+  /* Shadows */
+  --shadow-card: 0 20px 45px var(--color-shadow);
+  --shadow-button: 0 8px 20px rgba(139, 94, 60, 0.35);
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.35s ease;
+  --transition-slow: 0.6s ease;
+
+  /* Layout */
+  --content-max-width: 560px;
+  --safe-padding: 24px;
+}
